@@ -20,12 +20,14 @@ Using Neovim0.9.4
     ● telescope.nvim 1.44ms  start
 
 Installing  LSP - 
-[mason.nvim](https://github.com/williamboman/mason.nvim)
+[mason.nvim](https://github.com/williamboman/mason.nvim)  
     - Installs and manages our language servers
-[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+
+[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)  
     - Ensures specific language servers are installed on the get-go
-[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-    [server_configurations list](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)  
+    [server_configurations list](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)  
     - Hooks up Neovim to the Language Server, and establishes the communications between the two
     - Set keymaps to do specific lsp actions
 
