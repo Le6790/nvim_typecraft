@@ -6,6 +6,7 @@ import os
 def main():
     """main function"""
     print("hello")
+    print("hello")
 
     var = 1
     print(var)

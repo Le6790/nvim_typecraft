@@ -16,13 +16,20 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    lazy= false,
     config = function()
+
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
       local lspconfig = require("lspconfig")
       -- Setup language servers here
-      lspconfig.lua_ls.setup({}) -- Lua language server
-      lspconfig.tsserver.setup({}) -- TypScript language server
+      lspconfig.lua_ls.setup({
+      capabilities = capabilities}) -- Lua language server
+      lspconfig.tsserver.setup({
+      capabilities = capabilities}) -- TypScript language server
       lspconfig.pyright.setup({
         filetypes = { "python" },
+        capabilities = capabilities
       }) -- Pyright language server
 
       -- Set keymaps here
