@@ -1,9 +1,6 @@
-
-
 # NEOVIM - Typecraft
 
-
-2024-03-20 New nvim build off of typecraft's tutorial - 
+2024-03-20 New nvim build off of typecraft's tutorial -
 [typecraft 0 to IDE](https://www.youtube.com/watch?v=zHTeCSVAFNY&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&ab_channel=typecraft)
 
 Using Neovim0.9.4
@@ -11,6 +8,7 @@ Using Neovim0.9.4
 [lazy.nvim package manager](https://github.com/folke/lazy.nvim)
 
 ### Plugins
+
     ● catppuccin 17.3ms  start
     ● lualine.nvim 4.21ms  start
     ● nvim-tree.lua 20.19ms  start
@@ -19,28 +17,27 @@ Using Neovim0.9.4
     ● plenary.nvim 0.37ms  telescope.nvim
     ● telescope.nvim 1.44ms  start
 
-Installing  LSP - 
-[mason.nvim](https://github.com/williamboman/mason.nvim)  
-    - Installs and manages our language servers
+### Installing LSP -
 
-[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)  
-    - Ensures specific language servers are installed on the get-go
+[mason.nvim](https://github.com/williamboman/mason.nvim)
+
+- Installs and manages our language servers
+
+[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+
+- Ensures specific language servers are installed on the get-go
 
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)  
-    [server_configurations list](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)  
-    - Hooks up Neovim to the Language Server, and establishes the communications between the two
-    - Set keymaps to do specific lsp actions
+ [server_configurations list](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
 
+- Hooks up Neovim to the Language Server, and establishes the communications between the two - Set keymaps to do specific lsp actions
 
+### None-LS(Null-LS)
 
+Helps integrate linters and formatters into Neovim
 
+Install tools with :Mason
 
+### Autocomplete and Snippets
 
-
-
-
-
-
-
-
-
+nvim-cmp
