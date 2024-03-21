@@ -12,7 +12,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         -- Add language servers here
-        ensure_installed = { "lua_ls", "tsserver", "pyright" },
+        ensure_installed = { "lua_ls", "tsserver", "pyright", "bashls" },
       })
     end,
   },
@@ -33,7 +33,10 @@ return {
       lspconfig.pyright.setup({
         filetypes = { "python" },
         capabilities = capabilities,
-      }) -- Pyright language server
+      })-- Pyright language server
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
+      })
 
       -- Set keymaps here
       -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -44,6 +47,10 @@ return {
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
       vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, {})
       vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, {})
+
+      vim.keymap.set('n', '<leader>ge', vim.diagnostic.open_float)
+      vim.keymap.set('n', '<leader>gs', vim.diagnostic.show)
+
     end,
   },
 }
