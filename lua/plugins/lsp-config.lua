@@ -2,7 +2,9 @@ return {
   {
     "williamboman/mason.nvim",
     config = function()
-      require("mason").setup({})
+      require("mason").setup({
+        ensure_installed = { "black", "isort" },
+      })
     end,
   },
   {
@@ -16,20 +18,21 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    lazy= false,
+    lazy = false,
     config = function()
-
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
       -- Setup language servers here
       lspconfig.lua_ls.setup({
-      capabilities = capabilities}) -- Lua language server
+        capabilities = capabilities,
+      }) -- Lua language server
       lspconfig.tsserver.setup({
-      capabilities = capabilities}) -- TypScript language server
+        capabilities = capabilities,
+      }) -- TypScript language server
       lspconfig.pyright.setup({
         filetypes = { "python" },
-        capabilities = capabilities
+        capabilities = capabilities,
       }) -- Pyright language server
 
       -- Set keymaps here
