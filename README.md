@@ -1,43 +1,64 @@
 # NEOVIM - Typecraft
 
-2024-03-20 New nvim build off of typecraft's tutorial -
-[typecraft 0 to IDE](https://www.youtube.com/watch?v=zHTeCSVAFNY&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&ab_channel=typecraft)
+```
+                                  __
+     ___     ___    ___   __  __ /\_\    ___ ___
+    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\
+   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \
+   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\
+    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/
+```
 
-Using Neovim0.9.4
+[Built from Typecraft 0 to IDE](https://www.youtube.com/watch?v=zHTeCSVAFNY&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&ab_channel=typecraft)
+
+Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 
 [lazy.nvim package manager](https://github.com/folke/lazy.nvim)
 
 ### Plugins
 
-    ● catppuccin 17.3ms  start
-    ● lualine.nvim 4.21ms  start
-    ● nvim-tree.lua 20.19ms  start
-    ● nvim-treesitter 15.7ms ✔ build
-    ● nvim-web-devicons 0.38ms  nvim-tree.lua
-    ● plenary.nvim 0.37ms  telescope.nvim
-    ● telescope.nvim 1.44ms  start
+- [lazy.nvim](https://github.com/folke/lazy.nvim)
+  - Amazing plugin manager for Neovim
+- [alpha-nvim](https://github.com/goolord/alpha-nvim)
+  - Welcome screen greeter
+- [bufferline](https://github.com/akinsho/bufferline.nvim)
+  - Snazzy tabs to show buffers
+- [catppuccin](https://github.com/catppuccin/catppuccin)
+  - Best theme ever
+- completions
+  - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+    - A completion engine plugin
+  - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+    - nvim lsp completion source. Merges different completion results with nvm cmp
+  - [luasnip](https://github.com/L3MON4D3/LuaSnip)
+    - Snippet completion source
+    - vs-code like snippets
+- [fzf.nvim](https://github.com/junegunn/fzf.vim)
+  - Fuzzy finder wrapper for nvim
+- lsp-config
+  - [mason.nvim](https://github.com/williamboman/mason.nvim)
+    - Package manager
+    - Easily install LSPs, linters, and formatters
+  - [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
+    - Closes some gaps between mason.nvim and lspconfig
+    - Ensure_installed language servers
+  - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+    - Configurations for LSP clients
+    - Set keymaps shortcuts for diagnostics, buffer hints
+- [lualine](https://github.com/nvim-lualine/lualine.nvim)
+  - status line
+- [none-ls](https://github.com/nvimtools/none-ls.nvim)
+  - Inject diaognstics and formatters into LSP
+- [nvimtree](https://github.com/nvim-tree/nvim-tree.lua)
+  - A sidebar file explorer
+- [osbidian](https://github.com/epwalsh/obsidian.nvim)
+  - Obsidian plugin to write and navigate vaults
+- [telescope](https://github.com/nvim-telescope/telescope.nvim)
+  - Highly extendable fuzzy finder
+- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+  - Parse generator tool to build syntax trees
+- [which-key](https://github.com/folke/which-key.nvim)
+  - Displays a popup with possible key bindings of the command you started typing
+- []()
+- []()
 
-### Installing LSP -
-
-[mason.nvim](https://github.com/williamboman/mason.nvim)
-
-- Installs and manages our language servers
-
-[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-
-- Ensures specific language servers are installed on the get-go
-
-[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)  
- [server_configurations list](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
-
-- Hooks up Neovim to the Language Server, and establishes the communications between the two - Set keymaps to do specific lsp actions
-
-### None-LS(Null-LS)
-
-Helps integrate linters and formatters into Neovim
-
-Install tools with :Mason
-
-### Autocomplete and Snippets
-
-nvim-cmp
