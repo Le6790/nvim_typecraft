@@ -36,7 +36,7 @@ return {
       })-- Pyright language server
       lspconfig.bashls.setup({
         capabilities = capabilities,
-      })
+      })-- Bash language server
 
       -- Set keymaps here
       -- See `:help vim.lsp.*` for documentation on any of the below functions
