@@ -25,6 +25,8 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - Snazzy tabs to show buffers
 - [catppuccin](https://github.com/catppuccin/catppuccin)
   - Best theme ever
+- [comment.nvim](https://github.com/numToStr/Comment.nvim)
+    - Comment lines
 - completions
   - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
     - A completion engine plugin
