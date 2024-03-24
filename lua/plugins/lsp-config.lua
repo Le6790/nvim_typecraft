@@ -44,12 +44,11 @@ return {
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
+      vim.keymap.set('n', 'ge', vim.diagnostic.open_float)
+      vim.keymap.set('n', 'gs', vim.diagnostic.show)
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-      vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, {})
       vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, {})
 
-      vim.keymap.set('n', '<leader>ge', vim.diagnostic.open_float)
-      vim.keymap.set('n', '<leader>gs', vim.diagnostic.show)
 
     end,
   },

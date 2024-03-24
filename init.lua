@@ -13,13 +13,24 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 local opts = {}
 
 require("vim-options")
 require("vim-keymaps")
-require("lazy").setup("plugins")
-
-
-
-
+require("lazy").setup("plugins", {
+  change_detection = { enabled = true },
+  debug = false,
+  performance = {
+    rtp = {
+      diabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
+})

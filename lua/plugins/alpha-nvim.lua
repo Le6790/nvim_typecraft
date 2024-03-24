@@ -11,7 +11,7 @@ return {
       dashboard.button("p", " " .. " List Git Files", ":GFiles <CR>"),
       dashboard.button("t", " " .. " Find text", ":Rg <CR>"),
       dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-      dashboard.button("o", "OB" .. " Daily Note", ":ObsidianToday <CR>"),
+      dashboard.button("o", "OB" .. " Daily Note", ":cd ~/Documents/obsidian_brain <CR> :ObsidianToday <CR>"),
       dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
     local function footer()

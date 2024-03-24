@@ -62,6 +62,27 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - Parse generator tool to build syntax trees
 - [which-key](https://github.com/folke/which-key.nvim)
   - Displays a popup with possible key bindings of the command you started typing
-- []()
-- []()
+
+
+### LSP key bindings
+
+
+- "n",      "K", vim.lsp.buf.hover, {})
+- "n",      "gD", vim.lsp.buf.declaration, {})
+- "n",      "gd", vim.lsp.buf.definition, {})
+- 'n',      "ge", vim.diagnostic.open_float)
+- "n",      "gi", vim.lsp.buf.implementation, {})
+- 'n',      "gs", vim.diagnostic.show)
+- "n",      "<space>D", vim.lsp.buf.type_definition, {})
+- "n", "v"  "<leader>ca", vim.lsp.buf.code_action, {})
+
+
+
+
+
+
+
+
+
+
 
