@@ -12,7 +12,7 @@ return {
 				null_ls.builtins.formatting.isort,
 				null_ls.builtins.diagnostics.pylint,
 				-- JavaScript
-				null_ls.builtins.formatting.prettier,
+				--null_ls.builtins.formatting.prettier,
 
         --bash
         null_ls.builtins.formatting.shellharden,

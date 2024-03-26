@@ -3,7 +3,7 @@ return {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup({
-        ensure_installed = { "black", "isort" },
+        ensure_installed = { "black", "isort", "pylint", "shellharden" },
       })
     end,
   },
@@ -12,7 +12,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         -- Add language servers here
-        ensure_installed = { "lua_ls", "tsserver", "pyright", "bashls" },
+        ensure_installed = { "lua_ls", "pyright", "bashls" },
       })
     end,
   },
@@ -27,9 +27,6 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
       }) -- Lua language server
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      }) -- TypScript language server
       lspconfig.pyright.setup({
         filetypes = { "python" },
         capabilities = capabilities,
