@@ -18,6 +18,7 @@ return {
       local cmp = require("cmp")
       local luasnip = require("luasnip") -- For `luasnip` users.
       require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load({paths = {"~/.config/nvim/lua/snippets/"}})
 
       local has_words_before = function()
         unpack = unpack or table.unpack

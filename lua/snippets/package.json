@@ -1,0 +1,10 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "perl",
+        "path": "./perl.json"
+      }
+    ]
+  }
+}
