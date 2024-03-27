@@ -63,6 +63,11 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 - [which-key](https://github.com/folke/which-key.nvim)
   - Displays a popup with possible key bindings of the command you started typing
 
+** pyright - installing npm
+- https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    - nvm ls -remote
+    - nvm install v21.7.0
 
 ### LSP key bindings
 
