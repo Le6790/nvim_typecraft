@@ -1,12 +1,15 @@
 return {
   {
     "hrsh7th/cmp-nvim-lsp",
+    commit="5af77f54de1b16c34b23cba810150689a3a90312",
     dependencies = {
       "hrsh7th/cmp-path",
+      commit="91ff86cd9c29299a64f968ebb45846c485725f23",
     },
   },
   {
     "L3MON4D3/LuaSnip",
+    commit="a7a4b4682c4b3e2ba82b82a4e6e5f5a0e79dec32",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",

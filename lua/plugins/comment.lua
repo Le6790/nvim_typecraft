@@ -1,6 +1,7 @@
 -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
 return {
   "numToStr/Comment.nvim",
+  commit="0236521ea582747b58869cb72f70ccfa967d2e89",
   opts = {
     -- add any options here
   },
