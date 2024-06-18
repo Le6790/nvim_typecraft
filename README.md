@@ -82,6 +82,11 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 - "n", "v"  "<leader>ca", vim.lsp.buf.code_action, {})
 
 
+### Troubleshooting
+- [:LspInfo - Cannot find module error using Node.js](https://stackoverflow.com/questions/78095216/pyright-lsp-install-in-neovim-nodeutil-module-not-found)
+    - node.js on apt was out of date. install latest version to fix
+    
+
 
 
 
