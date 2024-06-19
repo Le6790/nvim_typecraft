@@ -4,7 +4,7 @@ return {
     commit = "3b5068f0fc565f337d67a2d315d935f574848ee7",
     config = function()
       require("mason").setup({
-        ensure_installed = { "black", "isort", "pylint", "shellharden" },
+        ensure_installed = { "stylua","black", "isort", "pylint", "shellharden" },
       })
     end,
   },
@@ -14,7 +14,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         -- Add language servers here
-        ensure_installed = { "lua_ls", "pyright", "bashls" },
+        ensure_installed = { "lua_ls", "pyright", "bashls", "marksman" },
       })
     end,
   },
@@ -27,17 +27,30 @@ return {
 
       local lspconfig = require("lspconfig")
       -- Setup language servers here
+      -- Lua language server
+      -- formatter - stylua
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
-      }) -- Lua language server
+      })
+
+      -- Pyright language server
+      -- formatter - isort
+      -- linter - pylint
       lspconfig.pyright.setup({
         filetypes = { "python" },
         capabilities = capabilities,
-      }) -- Pyright language server
+      })
+
+      -- Bash language server
+      -- formatter/linter - shellharden
       lspconfig.bashls.setup({
         capabilities = capabilities,
-      }) -- Bash language server
+      })
 
+       -- markdown language server
+      lspconfig.marksman.setup({
+        capabilities = capabilities,
+      })
       -- Set keymaps here
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
