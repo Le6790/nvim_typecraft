@@ -19,7 +19,8 @@ return {
 				null_ls.builtins.formatting.shellharden, -- cargo install shellharden
 
 				--markdown
-				null_ls.builtins.diagnostics.markdownlint, -- install via :Mason
+				--null_ls.builtins.diagnostics.markdownlint, -- install via :Mason
+        --null_ls.builtins.formatting.mdformat
 			},
 		})
 
