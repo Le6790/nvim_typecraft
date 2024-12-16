@@ -30,6 +30,7 @@ return {
 		templates = {
 			subdir = "templates",
 		},
+    ui = { enable = false },
 
 		-- see below for full list of options 👇
 	},

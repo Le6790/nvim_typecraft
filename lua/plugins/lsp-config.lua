@@ -3,9 +3,7 @@ return {
     "williamboman/mason.nvim",
     commit = "3b5068f0fc565f337d67a2d315d935f574848ee7",
     config = function()
-      require("mason").setup({
-        ensure_installed = { "stylua","black", "isort", "pylint", "shellharden" },
-      })
+      require("mason").setup({})
     end,
   },
   {
@@ -47,7 +45,7 @@ return {
         capabilities = capabilities,
       })
 
-       -- markdown language server
+      -- markdown language server
       lspconfig.marksman.setup({
         capabilities = capabilities,
       })
