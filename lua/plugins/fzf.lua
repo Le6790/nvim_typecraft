@@ -8,6 +8,8 @@ return {
   config = function()
     vim.keymap.set("n", "<leader>pf", ":Files<CR>")
     vim.keymap.set("n", "<leader>pr", ":History<CR>")
-    vim.keymap.set("n", "<leader>pt", ":Rg <CR>")
+    vim.keymap.set("n", "<leader>pt", ":Rg<CR>")
+    vim.keymap.set("n", "<leader>pb", ":Buffers<CR>")
+
   end,
 }
