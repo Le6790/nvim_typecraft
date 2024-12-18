@@ -1,15 +1,15 @@
 return {
   {
     "hrsh7th/cmp-nvim-lsp",
-    commit="5af77f54de1b16c34b23cba810150689a3a90312",
+    commit = "5af77f54de1b16c34b23cba810150689a3a90312",
     dependencies = {
       "hrsh7th/cmp-path",
-      commit="91ff86cd9c29299a64f968ebb45846c485725f23",
+      commit = "91ff86cd9c29299a64f968ebb45846c485725f23",
     },
   },
   {
     "L3MON4D3/LuaSnip",
-    commit="a7a4b4682c4b3e2ba82b82a4e6e5f5a0e79dec32",
+    commit = "a7a4b4682c4b3e2ba82b82a4e6e5f5a0e79dec32",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -21,12 +21,13 @@ return {
       local cmp = require("cmp")
       local luasnip = require("luasnip") -- For `luasnip` users.
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load({paths = {"~/.config/nvim/lua/snippets/"}})
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/lua/snippets/" } })
 
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        return col ~= 0
+            and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
       cmp.setup({
@@ -40,7 +41,7 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         --mapping = cmp.mapping.preset.insert({
-        mapping = ({
+        mapping = {
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
@@ -69,10 +70,11 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-        }),
+        },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" }, -- For luasnip users.
+          { name = "render-markdown" },
         }, {
           { name = "buffer" },
           { name = "path" },
