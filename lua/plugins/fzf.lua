@@ -10,5 +10,6 @@ return {
 		vim.keymap.set("n", "<leader>pr", ":History<CR>")
 		vim.keymap.set("n", "<leader>pt", ":Rg<CR>")
 		vim.keymap.set("n", "<leader>pb", ":Buffers<CR>")
+		vim.keymap.set("n", "<leader>pm", ":Marks<CR>")
 	end,
 }
