@@ -25,7 +25,7 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 - [bufferline](https://github.com/akinsho/bufferline.nvim)
   - Snazzy tabs to show buffers
 - [catppuccin](https://github.com/catppuccin/catppuccin)
-  - Best theme ever
+  - Cozy pastel theme
 - [comment.nvim](https://github.com/numToStr/Comment.nvim)
     - Comment lines
 - completions
@@ -56,10 +56,21 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - A sidebar file explorer
 - [osbidian](https://github.com/epwalsh/obsidian.nvim)
   - Obsidian plugin to write and navigate vaults
+- [render markdown ](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+    - Improve viewing Markdown files
+- [scrollview](https://github.com/dstein64/nvim-scrollview)
+    - interative vertical scrollbar and signs
 - [telescope](https://github.com/nvim-telescope/telescope.nvim)
   - Highly extendable fuzzy finder
+  - Not really used at the moment
+- [tint](https://github.com/levouh/tint.nvim)
+  - Dim inactive windows 
 - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
   - Parse generator tool to build syntax trees
+- [vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)
+  - Line bookmark to save and jump back to 
+- [vim-signify](https://github.com/mhinz/vim-signify)
+  - Use the sign column to indicate VCS changes
 - [which-key](https://github.com/folke/which-key.nvim)
   - Displays a popup with possible key bindings of the command you started typing
 
