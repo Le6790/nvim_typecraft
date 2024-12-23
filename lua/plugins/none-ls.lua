@@ -7,7 +7,7 @@ return {
 			sources = {
 				-- use :Mason to install these formatters/linters
 				-- lua
-				null_ls.builtins.formatting.stylua, -- install via :Mason
+				--null_ls.builtins.formatting.stylua, -- install via :Mason
 				-- python
 				null_ls.builtins.formatting.black, -- pip install black
 				null_ls.builtins.formatting.isort, -- pip install isort if not satisfied
