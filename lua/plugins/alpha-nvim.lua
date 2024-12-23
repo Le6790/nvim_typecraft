@@ -1,7 +1,7 @@
 return {
   "goolord/alpha-nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  commit="41283fb402713fc8b327e60907f74e46166f4cfd",
+  commit = "41283fb402713fc8b327e60907f74e46166f4cfd",
   config = function()
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
@@ -19,8 +19,9 @@ return {
       return "WeE wOo"
     end
     dashboard.section.footer.val = footer()
-  dashboard.section.buttons.opts.hl = "Keyword"
+    dashboard.section.buttons.opts.hl = "Keyword"
 
     alpha.setup(dashboard.opts)
   end,
+  enabled = false,
 }
