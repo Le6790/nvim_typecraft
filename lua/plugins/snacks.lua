@@ -1,10 +1,12 @@
 return {
   "folke/snacks.nvim",
   priority = 1000,
+  vim.api.nvim_create_user_command("Dashboard", "lua Snacks.dashboard()", {}),
   lazy = false,
   ---@type snacks.Config
   ---@class snacks.dashboard.Config
   ---@field enabled? boolean
+  ---@field dashboard? snacks.dashboard.Config
   ---@field sections snacks.dashboard.Section
   ---@field formats table<string, snacks.dashboard.Text|fun(item:snacks.dashboard.Item, ctx:snacks.dashboard.Format.ctx):snacks.dashboard.Text>
   opts = {
@@ -38,7 +40,7 @@ return {
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":Files" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "g", desc = "Find Text", action = ":Rg" },
+          { icon = " ", key = "t", desc = "Find Text", action = ":Rg" },
           { icon = " ", key = "r", desc = "Recent Files", action = ":History" },
           { icon = " ", key = "c", desc = "Config", action = ":e $MYVIMRC" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
@@ -47,12 +49,24 @@ return {
         },
         -- Used by the `header` section
         header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+     ⠀⠀⠀⣠⠞⢠⠖⠉⠉⠉⢭⣭⣀⡉⣍⠉⠉⠒⠭⣑⠤⡀⠀⠀⠀⠀
+     ⠀⠀⡞⠁⡰⠳⢦⣼⣿⡿⣿⣿⣿⣿⣿⣿⣶⣤⡀⠈⠓⣌⢢⡀⠀⠀
+     ⠀⣸⠁⣰⣵⣾⣿⣿⡿⠹⣿⣿⢿⣟⣿⣿⣿⣿⣿⣦⡀⠈⢣⠱⡀⠀
+     ⠀⢯⢠⣿⠟⣿⣿⣿⡇⠀⣿⠛⣷⢙⣻⢌⣻⠟⣿⣿⣿⣆⠀⢧⢳⠀
+     ⠀⠘⡞⢡⣼⣿⣿⣯⣧⠀⠘⠆⢨⠋⢠⡤⢘⣆⢻⣿⣿⣿⠇⢸⠀⡇
+     ⠀⠀⢱⡼⢟⣿⣿⣿⠋⢑⣄⠀⠈⠢⠤⠔⣺⣏⠀⣿⣿⡏⠀⡼⠀⡇
+     ⠀⠀⠁⠘⢺⣿⣿⣿⣦⣈⣽⠀⠀⢀⡤⠊⢡⣾⠀⠸⣿⢃⡴⠁⡜⠁
+     ⠀⠀⠀⠀⠀⠻⠙⠟⣿⡀⢨⠭⠊⡡⠔⠀⢠⠃⡜⣿⡋⣁⡠⠊⠀⠀
+     ⠀⠀⠀⠀⡰⠉⢓⠀⠈⠳⢌⡳⢄⣀⠤⠒⢁⠞⡼⠙⡄⠀⠀⠀⠀⠀
+     ⠀⠀⣀⠤⣣⣄⢸⠀⠀⠀⠀⠉⠑⠒⠤⢲⣥⠼⣤⣤⣱⡀⠀⠀⠀⠀
+     ⣠⠊⠁⠀⠀⠈⣞⣆⠀⠀⠀⠀⠀⠀⣴⠏⠀⠀⠀⠙⢿⣿⣧⡀⠀⠀
+     ⠄⠈⠉⠉⠙⢦⢻⠚⣄⠀⠀⠀⠀⣼⠃⠀⠀⠀⠀⠀⢸⣿⣿⣧⠀⠀
+  ▄▄▄▄  ▗▞▀▚▖ ▄▄▄  ▄   ▄ ▄ ▄▄▄▄
+ █    █ ▐▛▀▀▘█   █ █   █ ▄ █ █ █
+ █    █ ▝▚▄▄▖▀▄▄▄▀  ▀▄▀  █ █   █
+
+
+]],
       },
       -- item field formatters
       formats = {
@@ -60,10 +74,10 @@ return {
           -- if item.file and item.icon == "file" or item.icon == "directory" then
           --   -- return M.icon(item.file, item.icon)
           -- end
-          return { item.icon, width = 2, hl = "icon" }
+          return { item.icon, width = 1, hl = "icon" }
         end,
         footer = { "%s", align = "center" },
-        header = { "%s", align = "center" },
+        header = { "\n\n\n%s", align = "center" },
         file = function(item, ctx)
           local fname = vim.fn.fnamemodify(item.file, ":~")
           fname = ctx.width and #fname > ctx.width and vim.fn.pathshorten(fname) or fname
@@ -80,12 +94,13 @@ return {
         end,
       },
       sections = {
-        { section = "header" },
-        { section = "keys", gap = 1, padding = 1 },
-        { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-        { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        { section = "header", pane = 2, },
+        { section = "keys", padding = 1 },
+        { pane = 1, icon = " ", title = "Recent Files", section = "recent_files", indent = 3, },
+        { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
         {
-          pane = 2,
+          align = "center",
+          pane = 1,
           icon = " ",
           title = "Git Status",
           section = "terminal",
@@ -103,4 +118,23 @@ return {
     }
 
   },
+  keys = {
+    -- { "<leader>z",  function() Snacks.zen() end,                     desc = "Toggle Zen Mode" },
+    -- { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
+    { "<leader>.",  function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer" },
+    { "<leader>S",  function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer" },
+    { "<leader>n",  function() Snacks.notifier.show_history() end,   desc = "Notification History" },
+    -- { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
+    -- { "<leader>cR", function() Snacks.rename.rename_file() end,      desc = "Rename File" },
+    { "<leader>gB", function() Snacks.gitbrowse() end,               desc = "Git Browse",                  mode = { "n", "v" } },
+    { "<leader>gb", function() Snacks.git.blame_line() end,          desc = "Git Blame Line" },
+    { "<leader>gf", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History" },
+    { "<leader>gg", function() Snacks.lazygit() end,                 desc = "Lazygit" },
+    { "<leader>gl", function() Snacks.lazygit.log() end,             desc = "Lazygit Log (cwd)" },
+    { "<leader>un", function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications" },
+    { "<c-/>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
+    { "<c-_>",      function() Snacks.terminal() end,                desc = "which_key_ignore" },
+    { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
+    { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
+  }
 }
