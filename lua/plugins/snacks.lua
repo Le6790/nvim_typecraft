@@ -3,12 +3,6 @@ return {
   priority = 1000,
   vim.api.nvim_create_user_command("Dashboard", "lua Snacks.dashboard()", {}),
   lazy = false,
-  ---@type snacks.Config
-  ---@class snacks.dashboard.Config
-  ---@field enabled? boolean
-  ---@field dashboard? snacks.dashboard.Config
-  ---@field sections snacks.dashboard.Section
-  ---@field formats table<string, snacks.dashboard.Text|fun(item:snacks.dashboard.Item, ctx:snacks.dashboard.Format.ctx):snacks.dashboard.Text>
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
@@ -36,7 +30,6 @@ return {
         -- Used by the `keys` section to show keymaps.
         -- Set your custom keymaps here.
         -- When using a function, the `items` argument are the default keymaps.
-        ---@type snacks.dashboard.Item[]
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":Files" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
