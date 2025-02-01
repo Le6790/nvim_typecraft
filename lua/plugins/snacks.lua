@@ -30,11 +30,13 @@ return {
         -- Used by the `keys` section to show keymaps.
         -- Set your custom keymaps here.
         -- When using a function, the `items` argument are the default keymaps.
+        -- Get more icons from https://www.nerdfonts.com/cheat-sheet
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":Files" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
           { icon = " ", key = "t", desc = "Find Text", action = ":Rg" },
           { icon = " ", key = "r", desc = "Recent Files", action = ":History" },
+          { icon = "󰠮 ", key = "o", desc = "Obsidian Today", action = ":ObsidianToday" },
           { icon = " ", key = "c", desc = "Config", action = ":e $MYVIMRC" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
           { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
