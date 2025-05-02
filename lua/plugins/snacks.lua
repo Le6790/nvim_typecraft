@@ -23,6 +23,7 @@ return {
       pane_gap = 4,                                                                -- empty columns between vertical panes
       autokeys = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
       -- These settings are used by some built-in sections
+      ui_select = true,
       preset = {
         -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
         ---@type fun(cmd:string, opts:table)|nil
