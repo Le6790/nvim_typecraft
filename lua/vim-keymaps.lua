@@ -64,3 +64,8 @@ keymap("v", "K", ":m '<-2<CR>gv=gv")
 keymap("n", "<leader>y", '"+y')
 keymap("v", "<leader>y", '"+y')
 keymap("n", "<leader>Y", '"+Y')
+
+--vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<Tab>", 'copilot#Next()', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", 'copilot#Previous()', { silent = true, expr = true })

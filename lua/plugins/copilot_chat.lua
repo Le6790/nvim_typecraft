@@ -21,5 +21,6 @@ return {
       { "<leader>zs", ":CopilotChatCommit<CR>",   mode = "v", desc = "Generate Commit for Selection" },
       -- See Commands section for default commands if you want to lazy load on them
     },
+    lazy=false
   },
 }
