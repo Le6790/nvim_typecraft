@@ -8,6 +8,11 @@ return {
     build = "make tiktoken",                          -- Only on MacOS or Linux
     opts = {
       -- See Configuration section for options
+      mappings = {
+        complete = {
+          insert = '',
+        }
+      },
     },
     keys = {
       { "<leader>zc", ":CopilotChat<CR>",         mode = "n", desc = "Chat with CoPilot" },
@@ -19,8 +24,9 @@ return {
       { "<leader>zt", ":CopilotChatTests<CR>",    mode = "v", desc = "Generate Tests" },
       { "<leader>zm", ":CopilotChatCommit<CR>",   mode = "n", desc = "Generate Commit Message" },
       { "<leader>zs", ":CopilotChatCommit<CR>",   mode = "v", desc = "Generate Commit for Selection" },
-      -- See Commands section for default commands if you want to lazy load on them
+      { "<C-J>",      'copilot#Accept("<CR>")',   mode = "i", silent = true,                         expr = true, desc = "Accept Copilot Suggestion" },
     },
-    lazy=false
+    lazy = false,
+    enabled = false
   },
 }

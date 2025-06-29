@@ -1,6 +1,6 @@
 vim.opt.clipboard = "unnamed"                   -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
-vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+vim.opt.completeopt = { "menuone", "noselect", "popup" } -- mostly just for cmp
 vim.opt.conceallevel = 2                        -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
 vim.opt.hlsearch = false                        -- highlight all matches on previous search pattern
