@@ -98,6 +98,9 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
     - node.js on apt was out of date. install latest version to fix
     
 
+ ## Other installs
+- npm package manager - npm i -g bash-language-server
+
 
 
 

@@ -1,4 +1,22 @@
-vim.opt.clipboard = "unnamed"               -- allows neovim to access the system clipboard
+if vim.fn.has("wsl") == 1 then
+  vim.g.clipboard = {
+    name = "WslClip",
+    copy = {
+      ["+"] = "clip.exe",
+      ["*"] = "clip.exe",
+    },
+    paste = {
+      -- strip CR characters from Windows newlines
+      ["+"] = 'powershell.exe -NoProfile -Command Get-Clipboard | sed -e "s/\\r$//"',
+      ["*"] = 'powershell.exe -NoProfile -Command Get-Clipboard | sed -e "s/\\r$//"',
+    },
+    cache_enabled = 0,
+  }
+  vim.opt.clipboard:append("unnamed")
+else
+  vim.opt.clipboard = "unnamed"
+end
+
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 2                        -- so that `` is visible in markdown files
@@ -26,7 +44,7 @@ vim.opt.shiftwidth = 2                          -- the number of spaces inserted
 vim.opt.tabstop = 2                             -- insert x spaces for a tab
 vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
-vim.opt.relativenumber= true                    -- set relative numbers
+vim.opt.relativenumber = true                   -- set relative numbers
 vim.opt.laststatus = 3                          -- only the last window will always have a status line
 vim.opt.showcmd = false                         -- hide (partial) command in the last line of the screen (for performance)
 vim.opt.ruler = false                           -- hide the line and column number of the cursor position
@@ -44,6 +62,5 @@ vim.opt.iskeyword:append "-"                    -- treats words with `-` as sing
 vim.opt.formatoptions:remove { "c", "r", "o" }  -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
 vim.opt.backspace = "indent,eol,start"
-vim.api.nvim_create_user_command("W","w",{})    -- Set :W to do the same thing as :w (Because I accidentally type it all the time)
-vim.api.nvim_create_user_command("Q","q",{})    -- Set :Q to do the same thing as :q (Because I accidentally type it all the time)
-
+vim.api.nvim_create_user_command("W", "w", {}) -- Set :W to do the same thing as :w (Because I accidentally type it all the time)
+vim.api.nvim_create_user_command("Q", "q", {}) -- Set :Q to do the same thing as :q (Because I accidentally type it all the time)

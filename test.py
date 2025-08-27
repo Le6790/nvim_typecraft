@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-import sys
-import os
+"""docstring"""
+# import os
+# import sys
 
 
 def main():
@@ -8,6 +9,7 @@ def main():
     print("hello")
     print("hello")
 
+    var == "1"
     var = 1
     print(var)
 

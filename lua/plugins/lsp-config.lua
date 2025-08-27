@@ -1,14 +1,14 @@
 return {
   {
     "williamboman/mason.nvim",
-    commit = "3b5068f0fc565f337d67a2d315d935f574848ee7",
+    --commit = "3b5068f0fc565f337d67a2d315d935f574848ee7",
     config = function()
       require("mason").setup({})
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    commit = "2ba17cecfde8b8c7c7c287909a1e4de895223df6",
+    -- commit = "2ba17cecfde8b8c7c7c287909a1e4de895223df6",
     config = function()
       require("mason-lspconfig").setup({
         -- Add language servers here
@@ -18,7 +18,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    commit = "d67715d3b746a19e951b6b0a99663fa909bb9e64",
+    -- commit = "d67715d3b746a19e951b6b0a99663fa909bb9e64",
     lazy = false,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
