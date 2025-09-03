@@ -1,4 +1,5 @@
 return {
+  commit="53ec77181d96494b9dc9457110dd62dc623cc78d", -- 2025-09-02
 	"nvimtools/none-ls.nvim",
 	lazy = false,
 	config = function()
