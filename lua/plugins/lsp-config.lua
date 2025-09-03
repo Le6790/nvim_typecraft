@@ -61,12 +61,11 @@ return {
 			-- PERL
 			lspconfig.perlnavigator.setup({
 				capabilities = capabilities,
-				cmd = { "perlnavigator" },
 				settings = {
 					perlPath = "perl",
 					enableWarnings = true,
-					perltidyProfile = "",
-					perlcriticProfile = "",
+					-- perltidyProfile = "",
+					-- perlcriticProfile = "",
 					perlcriticEnable = false,
 				},
 			})
