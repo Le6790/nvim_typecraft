@@ -91,6 +91,7 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 - 'n',      "gs", vim.diagnostic.show)
 - "n",      "<space>D", vim.lsp.buf.type_definition, {})
 - "n", "v"  "<leader>ca", vim.lsp.buf.code_action, {})
+- "n"       "<leader>fmt", vim.lsp.buf.format, {})
 
 
 ### Troubleshooting

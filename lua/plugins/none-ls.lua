@@ -1,6 +1,6 @@
 return {
-  commit="53ec77181d96494b9dc9457110dd62dc623cc78d", -- 2025-09-02
 	"nvimtools/none-ls.nvim",
+	commit = "53ec77181d96494b9dc9457110dd62dc623cc78d", -- 2025-09-02
 	lazy = false,
 	config = function()
 		local null_ls = require("null-ls")
@@ -8,20 +8,22 @@ return {
 			sources = {
 				-- use :Mason to install these formatters/linters
 				-- lua
-				--null_ls.builtins.formatting.stylua, -- install via :Mason
+				null_ls.builtins.formatting.stylua, -- install via :Mason
+
 				-- python
-				null_ls.builtins.formatting.black, -- pip install black
-				null_ls.builtins.formatting.isort, -- pip install isort if not satisfied
-				null_ls.builtins.diagnostics.pylint, -- pip install pylint
+				null_ls.builtins.formatting.black, -- install via :Mason
+				null_ls.builtins.formatting.isort, -- install via :Mason
+				-- null_ls.builtins.diagnostics.pylint, -- install via :Mason, If using pyright, don't need to enable
+
 				-- JavaScript
-				--null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.prettier, -- install via :Mason
 
 				--bash
 				null_ls.builtins.formatting.shellharden, -- cargo install shellharden
 
 				--markdown
 				--null_ls.builtins.diagnostics.markdownlint, -- install via :Mason
-        --null_ls.builtins.formatting.mdformat -- install via :Mason
+				--null_ls.builtins.formatting.mdformat -- install via :Mason
 			},
 		})
 
