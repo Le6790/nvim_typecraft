@@ -49,6 +49,20 @@ return {
       lspconfig.marksman.setup({
         capabilities = capabilities,
       })
+
+
+      -- perl navigator
+      lspconfig.perlnavigator.setup {
+        cmd = { "perlnavigator" },
+        settings = {
+          perlnavigator = {
+            perlPath = 'perl',
+            enableWarnings = true }
+        }
+
+
+      }
+
       -- Set keymaps here
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
