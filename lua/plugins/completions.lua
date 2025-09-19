@@ -1,15 +1,17 @@
 return {
   {
+    -- nvim-cmp source for neovim's built-in language server client
     "hrsh7th/cmp-nvim-lsp",
-    --commit = "5af77f54de1b16c34b23cba810150689a3a90312",
+    commit = "bd5a7d6db125d4654b50eeae9f5217f24bb22fd3", -- 2025/09/02
     dependencies = {
+      -- nvim-cmp source for filesystem paths
       "hrsh7th/cmp-path",
-      --commit = "91ff86cd9c29299a64f968ebb45846c485725f23",
+      commit = "c642487086dbd9a93160e1679a1327be111cbc25", -- 2025/09/02
     },
   },
   {
     "L3MON4D3/LuaSnip",
-    --commit = "a7a4b4682c4b3e2ba82b82a4e6e5f5a0e79dec32",
+    version = "v2.4.0",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -17,6 +19,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    version = "v0.0.2",
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip") -- For `luasnip` users.

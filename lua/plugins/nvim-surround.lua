@@ -1,6 +1,7 @@
 return {
   "kylechui/nvim-surround",
-  commit="84a26afce16cffa7e3322cfa80a42cddf60616eb",
+  version="v3.1.6",
+  -- commit="84a26afce16cffa7e3322cfa80a42cddf60616eb",
   event = "VeryLazy",
   config = function()
     require("nvim-surround").setup({

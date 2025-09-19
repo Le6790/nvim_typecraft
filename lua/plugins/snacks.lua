@@ -1,5 +1,6 @@
 return {
   "folke/snacks.nvim",
+  version = "2.22.0",
   priority = 1000,
   vim.api.nvim_create_user_command("Dashboard", "lua Snacks.dashboard()", {}),
   lazy = false,
