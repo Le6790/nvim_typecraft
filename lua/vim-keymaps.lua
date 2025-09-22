@@ -64,3 +64,7 @@ keymap("v", "K", ":m '<-2<CR>gv=gv")
 keymap("n", "<leader>y", '"+y')
 keymap("v", "<leader>y", '"+y')
 keymap("n", "<leader>Y", '"+Y')
+
+
+-- Select entire line, except for newline
+keymap("n", "vv", "0v$", { noremap = true })
