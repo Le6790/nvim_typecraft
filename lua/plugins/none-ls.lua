@@ -27,6 +27,6 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>fmt", vim.lsp.buf.format, {})
+		-- Keymap moved to vim-keymaps.lua
 	end,
 }

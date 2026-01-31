@@ -22,7 +22,7 @@ require("lazy").setup("plugins", {
   debug = false,
   performance = {
     rtp = {
-      diabled_plugins = {
+      disabled_plugins = {
         "gzip",
         "matchit",
         "matchparen",

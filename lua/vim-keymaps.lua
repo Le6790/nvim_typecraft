@@ -68,3 +68,37 @@ keymap("n", "<leader>Y", '"+Y')
 
 -- Select entire line, except for newline
 keymap("n", "vv", "0v$", { noremap = true })
+
+-- File explorer
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- Fuzzy finder (fzf)
+keymap("n", "<leader>pf", ":Files<CR>")
+keymap("n", "<leader>pr", ":History<CR>")
+keymap("n", "<leader>pt", ":Rg<CR>")
+keymap("n", "<leader>pb", ":Buffers<CR>")
+keymap("n", "<leader>pm", ":Marks<CR>")
+
+-- Formatting
+keymap("n", "<leader>fmt", vim.lsp.buf.format, {})
+
+-- Comment toggle
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", {})
+keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {})
+
+-- LSP keymaps (only active in buffers with LSP attached)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local buf = args.buf
+    local map = function(mode, lhs, rhs)
+      vim.keymap.set(mode, lhs, rhs, { buffer = buf })
+    end
+    map("n", "K", vim.lsp.buf.hover)
+    map("n", "gD", vim.lsp.buf.declaration)
+    map("n", "gd", vim.lsp.buf.definition)
+    map("n", "gi", vim.lsp.buf.implementation)
+    map("n", "ge", vim.diagnostic.open_float)
+    map("n", "gs", vim.diagnostic.show)
+    map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+  end,
+})

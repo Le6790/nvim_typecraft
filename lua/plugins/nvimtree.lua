@@ -7,7 +7,7 @@ return {
     },
   config = function()
     require("nvim-tree").setup {}
-    vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+    -- Keymap moved to vim-keymaps.lua
   end
 
   }

@@ -27,5 +27,11 @@ def main() -> None:
     this_method()
 
 
+    foo = 1
+
+    print(foo), bar = foo +1
+
+
+
 if __name__ == "__main__":
     main()

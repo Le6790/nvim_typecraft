@@ -80,18 +80,118 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
     - nvm ls -remote
     - nvm install v21.7.0
 
-### LSP key bindings
+### Keymaps
 
+Leader key: `<Space>`
 
-- "n",      "K", vim.lsp.buf.hover, {})
-- "n",      "gD", vim.lsp.buf.declaration, {})
-- "n",      "gd", vim.lsp.buf.definition, {})
-- 'n',      "ge", vim.diagnostic.open_float)
-- "n",      "gi", vim.lsp.buf.implementation, {})
-- 'n',      "gs", vim.diagnostic.show)
-- "n",      "<space>D", vim.lsp.buf.type_definition, {})
-- "n", "v"  "<leader>ca", vim.lsp.buf.code_action, {})
-- "n"       "<leader>fmt", vim.lsp.buf.format, {})
+#### Window Navigation
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<C-h>` | n | Move to left window |
+| `<C-j>` | n | Move to below window |
+| `<C-k>` | n | Move to above window |
+| `<C-l>` | n | Move to right window |
+| `<C-Up>` | n | Resize window up |
+| `<C-Down>` | n | Resize window down |
+| `<C-Left>` | n | Resize window left |
+| `<C-Right>` | n | Resize window right |
+
+#### Buffers
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<S-l>` | n | Next buffer |
+| `<S-h>` | n | Previous buffer |
+| `<S-q>` | n | Close buffer |
+| `<leader>ls` | n | List buffers |
+
+#### Navigation & Search
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>h` | n | Clear search highlights |
+| `<C-d>` | n | Scroll down (centered) |
+| `<C-u>` | n | Scroll up (centered) |
+| `n` | n | Next search result (centered) |
+| `N` | n | Previous search result (centered) |
+| `]]` | n, t | Next reference (snacks) |
+| `[[` | n, t | Previous reference (snacks) |
+
+#### File Explorer & Fuzzy Finder
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>e` | n | Toggle NvimTree |
+| `<leader>pv` | n | Open Netrw |
+| `<leader>pf` | n | Find files (fzf) |
+| `<leader>pr` | n | Recent files (fzf) |
+| `<leader>pt` | n | Ripgrep text search (fzf) |
+| `<leader>pb` | n | Search buffers (fzf) |
+| `<leader>pm` | n | Search marks (fzf) |
+
+#### Editing
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `jk` | i | Exit insert mode |
+| `<` / `>` | v | Indent and keep selection |
+| `J` / `K` | v | Move highlighted lines down/up |
+| `p` | v | Paste without overwriting register |
+| `vv` | n | Select entire line content |
+| `<leader>/` | n, x | Toggle comment |
+| `<leader>x` | n | Make file executable |
+
+#### Clipboard
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>y` | n, v | Yank to system clipboard |
+| `<leader>Y` | n | Yank line to system clipboard |
+
+#### LSP (active in LSP-attached buffers)
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `K` | n | Hover documentation |
+| `gD` | n | Go to declaration |
+| `gd` | n | Go to definition |
+| `gi` | n | Go to implementation |
+| `ge` | n | Open float diagnostics |
+| `gs` | n | Show diagnostics |
+| `<leader>ca` | n, v | Code action |
+| `<leader>fmt` | n | Format buffer |
+
+#### Git (snacks.nvim)
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>gg` | n | Open Lazygit |
+| `<leader>gl` | n | Lazygit log (cwd) |
+| `<leader>gf` | n | Lazygit current file history |
+| `<leader>gb` | n | Git blame line |
+| `<leader>gB` | n, v | Git browse (open in browser) |
+
+#### Utilities (snacks.nvim)
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>.` | n | Toggle scratch buffer |
+| `<leader>S` | n | Select scratch buffer |
+| `<leader>n` | n | Notification history |
+| `<leader>un` | n | Dismiss all notifications |
+| `<C-/>` | n | Toggle terminal |
+
+#### Completion (nvim-cmp, insert mode)
+
+| Key | Description |
+|-----|-------------|
+| `<C-Space>` | Trigger completion |
+| `<C-b>` / `<C-f>` | Scroll docs up/down |
+| `<Tab>` | Next item / expand snippet |
+| `<S-Tab>` | Previous item / jump back in snippet |
+| `<CR>` | Confirm selection |
+| `<C-e>` | Abort completion |
 
 
 ### Troubleshooting

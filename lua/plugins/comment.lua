@@ -7,8 +7,5 @@ return {
     -- add any options here
   },
   lazy = false,
-  config = function()
-    vim.keymap.set("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", {})
-    vim.keymap.set("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {})
-  end,
+  -- Keymaps moved to vim-keymaps.lua
 }

@@ -70,15 +70,7 @@ return {
           perlcriticEnable = false,
         },
       })
-      -- Set keymaps here
-      -- See `:help vim.lsp.*` for documentation on any of the below functions
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
-      vim.keymap.set("n", "ge", vim.diagnostic.open_float)
-      vim.keymap.set("n", "gs", vim.diagnostic.show)
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      -- Keymaps moved to vim-keymaps.lua (LspAttach autocmd)
     end,
   },
 }
