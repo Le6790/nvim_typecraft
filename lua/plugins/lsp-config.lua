@@ -12,7 +12,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         -- Add language servers here
-        ensure_installed = { "lua_ls", "pyright", "bashls", "marksman", "perlnavigator", "ts_ls" },
+        ensure_installed = { "lua_ls", "pyright", "ruff", "bashls", "marksman", "perlnavigator", "ts_ls" },
       })
     end,
   },
@@ -41,7 +41,16 @@ return {
       -- PYTHON
       -- Use pyright for type checking
       lspconfig.pyright.setup({
-        filetypes = { "python" },
+        capabilities = capabilities,
+        settings = {
+          pyright = {
+            -- Let ruff handle import organization
+            disableOrganizeImports = true,
+          },
+        },
+      })
+      -- Use ruff for linting/diagnostics
+      lspconfig.ruff.setup({
         capabilities = capabilities,
       })
 

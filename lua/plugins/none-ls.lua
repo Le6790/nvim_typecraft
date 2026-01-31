@@ -10,11 +10,6 @@ return {
 				-- lua
 				null_ls.builtins.formatting.stylua, -- install via :Mason
 
-				-- python
-				null_ls.builtins.formatting.black, -- install via :Mason
-				null_ls.builtins.formatting.isort, -- install via :Mason
-				-- null_ls.builtins.diagnostics.pylint, -- install via :Mason, If using pyright, don't need to enable
-
 				-- JavaScript
 				null_ls.builtins.formatting.prettier, -- install via :Mason
 

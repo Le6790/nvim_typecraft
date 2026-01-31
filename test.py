@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """docstring"""
+
 import os
 # import sys
 
 
 def this_method() -> str:
     """
-        this_method docstring. 
-        returns a string
+
+    this_method docstring.
+    returns a string
     """
     return "string"
 
@@ -26,11 +28,10 @@ def main() -> None:
     print(var)
     this_method()
 
-
     foo = 1
 
-    print(foo), bar = foo +1
-
+    print(foo)
+    bar = foo + 1
 
 
 if __name__ == "__main__":
