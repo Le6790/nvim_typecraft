@@ -39,7 +39,11 @@ keymap("n", "N", "Nzzzv")
 keymap("v", "p", "P", opts)
 
 --make file executable
-keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap("n", "<leader>x", function()
+  local file = vim.fn.expand("%:p")
+  vim.fn.system({ "chmod", "+x", file })
+  vim.notify("Made executable: " .. file)
+end, { silent = true, desc = "Make file executable" })
 
 -- open buffer
 keymap("n", "<leader>ls", ":ls<CR>")
@@ -93,12 +97,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local map = function(mode, lhs, rhs)
       vim.keymap.set(mode, lhs, rhs, { buffer = buf })
     end
-    map("n", "K", function() vim.lsp.buf.hover({ max_width = 80, max_height = 60 }) end)
+    map("n", "K", function() vim.lsp.buf.hover({ max_width = 80}) end)
     map("n", "gD", vim.lsp.buf.declaration)
     map("n", "gd", vim.lsp.buf.definition)
     map("n", "gi", vim.lsp.buf.implementation)
     map("n", "ge", vim.diagnostic.open_float)
     map("n", "gs", vim.diagnostic.show)
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+
+    -- Navigation
+    map("n", "gr", vim.lsp.buf.references)
+    map("n", "gt", vim.lsp.buf.type_definition)
+    map("n", "<leader>ds", vim.lsp.buf.document_symbol)
+    map("n", "<leader>ws", vim.lsp.buf.workspace_symbol)
+
+    -- Refactoring
+    map("n", "<leader>rn", vim.lsp.buf.rename)
+    map("i", "<C-s>", vim.lsp.buf.signature_help)
+
+    -- Diagnostics
+    map("n", "]d", vim.diagnostic.goto_next)
+    map("n", "[d", vim.diagnostic.goto_prev)
+    map("n", "<leader>dl", vim.diagnostic.setloclist)
+
+    -- Call hierarchy
+    map("n", "<leader>ci", vim.lsp.buf.incoming_calls)
+    map("n", "<leader>co", vim.lsp.buf.outgoing_calls)
   end,
 })

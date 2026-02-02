@@ -52,6 +52,9 @@ return {
       -- Use ruff for linting/diagnostics
       lspconfig.ruff.setup({
         capabilities = capabilities,
+        on_attach = function(client, _)
+          client.server_capabilities.hoverProvider = false
+        end,
       })
 
       -- BASH

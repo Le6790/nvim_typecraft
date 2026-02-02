@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """docstring"""
 
-import os
 # import sys
 
 
@@ -31,7 +30,6 @@ def main() -> None:
     foo = 1
 
     print(foo)
-    bar = foo + 1
 
 
 if __name__ == "__main__":

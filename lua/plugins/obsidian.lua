@@ -32,7 +32,11 @@ return {
     },
     ui = { enable = false },
     follow_url_func = function(url)
-      vim.fn.jobstart({ "xdg-open", url })
+      if url:match("^https?://") then
+        vim.fn.jobstart({ "xdg-open", url })
+      else
+        vim.notify("Blocked unsafe URL scheme: " .. url, vim.log.levels.WARN)
+      end
     end,
 
     -- see below for full list of options 👇

@@ -20,8 +20,6 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
   - Amazing plugin manager for Neovim
-- [alpha-nvim](https://github.com/goolord/alpha-nvim)
-  - Welcome screen greeter
 - [bufferline](https://github.com/akinsho/bufferline.nvim)
   - Snazzy tabs to show buffers
 - [catppuccin](https://github.com/catppuccin/catppuccin)
@@ -52,14 +50,20 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - status line
 - [none-ls](https://github.com/nvimtools/none-ls.nvim)
   - Inject diaognstics and formatters into LSP
+- [nvim-surround](https://github.com/kylechui/nvim-surround)
+  - Add, change, and delete surrounding delimiters
 - [nvimtree](https://github.com/nvim-tree/nvim-tree.lua)
   - A sidebar file explorer
-- [osbidian](https://github.com/epwalsh/obsidian.nvim)
+- [obsidian](https://github.com/epwalsh/obsidian.nvim)
   - Obsidian plugin to write and navigate vaults
 - [render markdown ](https://github.com/MeanderingProgrammer/render-markdown.nvim)
     - Improve viewing Markdown files
 - [scrollview](https://github.com/dstein64/nvim-scrollview)
     - interative vertical scrollbar and signs
+- [smear-cursor](https://github.com/sphamba/smear-cursor.nvim)
+  - Animated cursor movement
+- [snacks.nvim](https://github.com/folke/snacks.nvim)
+  - Utility plugin for dashboard, git, terminal, notifications, and more
 - [telescope](https://github.com/nvim-telescope/telescope.nvim)
   - Highly extendable fuzzy finder
   - Not really used at the moment
@@ -157,10 +161,21 @@ Leader key: `<Space>`
 | `gD` | n | Go to declaration |
 | `gd` | n | Go to definition |
 | `gi` | n | Go to implementation |
+| `gr` | n | List references |
+| `gt` | n | Go to type definition |
 | `ge` | n | Open float diagnostics |
 | `gs` | n | Show diagnostics |
+| `]d` | n | Next diagnostic |
+| `[d` | n | Previous diagnostic |
 | `<leader>ca` | n, v | Code action |
+| `<leader>rn` | n | Rename symbol |
+| `<leader>ds` | n | Document symbols |
+| `<leader>ws` | n | Workspace symbols |
+| `<leader>dl` | n | Diagnostics to location list |
+| `<leader>ci` | n | Incoming calls |
+| `<leader>co` | n | Outgoing calls |
 | `<leader>fmt` | n | Format buffer |
+| `<C-s>` | i | Signature help |
 
 #### Git (snacks.nvim)
 
