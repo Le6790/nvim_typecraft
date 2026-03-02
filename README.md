@@ -16,7 +16,7 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 
 [lazy.nvim package manager](https://github.com/folke/lazy.nvim)
 
-### Plugins
+## Plugins
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
   - Amazing plugin manager for Neovim
@@ -25,7 +25,7 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
 - [catppuccin](https://github.com/catppuccin/catppuccin)
   - Cozy pastel theme
 - [comment.nvim](https://github.com/numToStr/Comment.nvim)
-    - Comment lines
+  - Comment lines
 - completions
   - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
     - A completion engine plugin
@@ -48,18 +48,22 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
     - Set keymaps shortcuts for diagnostics, buffer hints
 - [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - status line
-- [none-ls](https://github.com/nvimtools/none-ls.nvim)
+- [none-ls](https://github.com/nvimtools/none-ls.nvim) - ***REPLACED WITH CONFORM.NVIM AND NVIM-LINT
   - Inject diaognstics and formatters into LSP
+- [conform.nvim](https://github.com/stevearc/conform.nvim)
+  - lightweight formatter
+- [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+  - Asynchronous linter plugin for Neovim
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
   - Add, change, and delete surrounding delimiters
 - [nvimtree](https://github.com/nvim-tree/nvim-tree.lua)
   - A sidebar file explorer
 - [obsidian](https://github.com/epwalsh/obsidian.nvim)
   - Obsidian plugin to write and navigate vaults
-- [render markdown ](https://github.com/MeanderingProgrammer/render-markdown.nvim)
-    - Improve viewing Markdown files
+- [render markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+  - Improve viewing Markdown files
 - [scrollview](https://github.com/dstein64/nvim-scrollview)
-    - interative vertical scrollbar and signs
+  - interative vertical scrollbar and signs
 - [smear-cursor](https://github.com/sphamba/smear-cursor.nvim)
   - Animated cursor movement
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
@@ -68,21 +72,21 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - Highly extendable fuzzy finder
   - Not really used at the moment
 - [tint](https://github.com/levouh/tint.nvim)
-  - Dim inactive windows 
+  - Dim inactive windows
 - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
   - Parse generator tool to build syntax trees
 - [vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)
-  - Line bookmark to save and jump back to 
+  - Line bookmark to save and jump back to
 - [vim-signify](https://github.com/mhinz/vim-signify)
   - Use the sign column to indicate VCS changes
 - [which-key](https://github.com/folke/which-key.nvim)
   - Displays a popup with possible key bindings of the command you started typing
 
 ** pyright - installing npm
-- https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
-    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-    - nvm ls -remote
-    - nvm install v21.7.0
+- `https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating`
+  - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash`
+  - nvm ls -remote
+  - nvm install v21.7.0
 
 ### Keymaps
 
@@ -208,14 +212,12 @@ Leader key: `<Space>`
 | `<CR>` | Confirm selection |
 | `<C-e>` | Abort completion |
 
-
-### Troubleshooting
+## Troubleshooting
 - [:LspInfo - Cannot find module error using Node.js](https://stackoverflow.com/questions/78095216/pyright-lsp-install-in-neovim-nodeutil-module-not-found)
-    - node.js on apt was out of date. install latest version to fix
-    
-
- ## Other installs
-- npm package manager - npm i -g bash-language-server
+  - node.js on apt was out of date. install latest version to fix
+  
+## Other installs
+    - npm package manager - npm i -g bash-language-server
 
 
 
