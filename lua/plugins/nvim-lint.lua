@@ -11,9 +11,6 @@ return {
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
 
-      -- Python
-      python = { "ruff" },
-
       -- Lua
       lua = { "luacheck" }, -- install with [brew|sudo apt install luacheck]
 
@@ -22,7 +19,7 @@ return {
       sh = { "shellcheck" },
 
       -- Markdown
-      markdown = { "markdownlint" }, -- install with Mason
+      --markdown = { "markdownlint" }, -- install with Mason
     }
     -- Auto-lint on these events
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

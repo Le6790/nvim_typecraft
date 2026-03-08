@@ -68,7 +68,7 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - Animated cursor movement
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
   - Utility plugin for dashboard, git, terminal, notifications, and more
-- [telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [telescope](https://github.com/nvim-telescope/telescope.nvim) - ***Disabled
   - Highly extendable fuzzy finder
   - Not really used at the moment
 - [tint](https://github.com/levouh/tint.nvim)

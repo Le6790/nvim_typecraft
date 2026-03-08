@@ -18,7 +18,7 @@ return {
         json = { "prettier" },
         css = { "prettier" },
         html = { "prettier" },
-        markdown = { "prettier" },
+        --markdown = { "prettier" },
       },
 
       -- Formatter-specific options
