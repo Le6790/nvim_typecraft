@@ -13,7 +13,7 @@ return {
     -- input = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
-    scroll = { enabled = true },
+    -- scroll = { enabled = true },
     -- statuscolumn = { enabled = true },
     words = { enabled = true },
     dashboard = {
@@ -33,10 +33,10 @@ return {
         -- When using a function, the `items` argument are the default keymaps.
         -- Get more icons from https://www.nerdfonts.com/cheat-sheet
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":Files" },
+          { icon = " ", key = "f", desc = "Find File", action = ":FzfLua files" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "t", desc = "Find Text", action = ":Rg" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":History" },
+          { icon = " ", key = "t", desc = "Find Text", action = ":FzfLua live_grep" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":FzfLua oldfiles" },
           { icon = "󰠮 ", key = "o", desc = "Obsidian Today", action = ":ObsidianToday" },
           { icon = " ", key = "c", desc = "Config", action = ":e $MYVIMRC" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
