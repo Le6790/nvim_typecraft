@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local map = function(mode, lhs, rhs)
       vim.keymap.set(mode, lhs, rhs, { buffer = buf })
     end
-    map("n", "K", function() vim.lsp.buf.hover({ max_width = 80}) end)
+    map("n", "K", function() vim.lsp.buf.hover({ max_width = 80 }) end)
     map("n", "gD", vim.lsp.buf.declaration)
     map("n", "gd", vim.lsp.buf.definition)
     map("n", "gi", vim.lsp.buf.implementation)
@@ -136,4 +136,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
-
+-- Shortcut Oyest to jump back/create yesterdays obsidian template
+vim.api.nvim_create_user_command("Oyest", function()
+  vim.cmd("ObsidianYesterday")
+end, {})
