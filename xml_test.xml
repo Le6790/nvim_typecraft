@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <metadata>
+        <name>City Public Library</name>
+        <established>1923</established>
+        <location>
+            <address>142 Elm Street</address>
+            <city>Springfield</city>
+            <state>IL</state>
+            <zip>62701</zip>
+        </location>
+    </metadata>
+
+    <books>
+        <book id="B001" available="true">
+            <title>The Hitchhiker's Guide to the Galaxy</title>
+            <author>
+                <firstName>Douglas</firstName>
+                <lastName>Adams</lastName>
+            </author>
+            <genre>Science Fiction</genre>
+            <year>1979</year>
+            <isbn>978-0-345-39180-3</isbn>
+            <rating>4.9</rating>
+        </book>
+
+        <book id="B002" available="false">
+            <title>Dune</title>
+            <author>
+                <firstName>Frank</firstName>
+                <lastName>Herbert</lastName>
+            </author>
+            <genre>Science Fiction</genre>
+            <year>1965</year>
+            <isbn>978-0-441-17271-9</isbn>
+            <rating>4.8</rating>
+        </book>
+
+        <book id="B003" available="true">
+            <title>The Name of the Wind</title>
+            <author>
+                <firstName>Patrick</firstName>
+                <lastName>Rothfuss</lastName>
+            </author>
+            <genre>Fantasy</genre>
+            <year>2007</year>
+            <isbn>978-0-756-40407-1</isbn>
+            <rating>4.7</rating>
+        </book>
+    </books>
+
+    <members>
+      <member
+        id="M001" 
+        status="active"
+        what="this"
+      >
+            <name>Jane Doe</name>
+            <email>jane.doe@email.com</email>
+            <joined>2020-03-15</joined>
+            <booksCheckedOut>
+                <bookRef id="B002" dueDate="2026-03-25" />
+            </booksCheckedOut>
+        </member>
+
+        <member id="M002" status="active">
+            <name>John Smith</name>
+            <email>john.smith@email.com</email>
+            <joined>2018-11-02</joined>
+            <booksCheckedOut />
+        </member>
+    </members>
+</library>

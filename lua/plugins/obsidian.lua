@@ -23,6 +23,10 @@ return {
         path = "/mnt/c/Users/rr280985/Documents/second_brain/",
       },
 
+      -- {
+      --   name = "work",
+      --   path = "/mnt/c/Users/rr280985/Documents/second_brain",
+      -- },
     },
     daily_notes = {
       date_format = "%Y/%m-%b/Daily Notes/%Y-%m-%d",
