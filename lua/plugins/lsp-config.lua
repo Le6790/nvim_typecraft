@@ -41,7 +41,7 @@ return {
       -- PYTHON
       -- Use pyright for type checking
       lspconfig.pyright.setup({
-        capabilities = capabilities,
+        capabilities = vim.tbl_extend("force", capabilities, { offsetEncoding = "utf-8" }),
         settings = {
           pyright = {
             -- Let ruff handle import organization

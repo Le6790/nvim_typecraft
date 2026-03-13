@@ -11,8 +11,8 @@ return {
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
 
-      -- Lua
-      lua = { "luacheck" }, -- install with [brew|sudo apt install luacheck]
+      -- lua
+      lua = { "luacheck" }, -- install with [brew install lua check|sudo apt install luarocks -> `luarocks install luacheck`]
 
       -- Shell
       bash = { "shellcheck" },

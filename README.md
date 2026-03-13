@@ -26,6 +26,9 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - Cozy pastel theme
 - [comment.nvim](https://github.com/numToStr/Comment.nvim)
   - Comment lines
+- [copilot.vim](https://github.com/github/copilot.vim)
+  - GitHub Copilot AI inline suggestions
+  - Run `:Copilot setup` to authenticate
 - completions
   - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
     - A completion engine plugin
@@ -211,6 +214,13 @@ Leader key: `<Space>`
 | `<S-Tab>` | Previous item / jump back in snippet |
 | `<CR>` | Confirm selection |
 | `<C-e>` | Abort completion |
+
+#### Copilot (insert mode)
+
+| Key | Description |
+|-----|-------------|
+| `<C-l>` | Accept suggestion |
+| `<C-o>` | Dismiss suggestion |
 
 ## Troubleshooting
 - [:LspInfo - Cannot find module error using Node.js](https://stackoverflow.com/questions/78095216/pyright-lsp-install-in-neovim-nodeutil-module-not-found)
