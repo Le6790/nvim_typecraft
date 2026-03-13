@@ -1,3 +1,33 @@
+-- 1. Define all possible workspaces across your different machines
+local possible_workspaces = {
+  {
+    name = "Work",
+    path = "/mnt/c/Users/rr280985/Documents/second_brain/"
+  },
+  {
+    name = "Personal",
+    path = "~/Documents/obsidian_brain",
+  },
+}
+
+-- 2. Create an empty table to hold the ones that actually exist
+local active_workspaces = {}
+
+-- 3. Loop through and check if the directories exist locally
+for _, ws in ipairs(possible_workspaces) do
+  -- vim.fn.expand resolves the "~" to your actual home directory path
+  local full_path = vim.fn.expand(ws.path)
+
+  -- If the directory exists (returns 1), add it to our active list
+  if vim.fn.isdirectory(full_path) == 1 then
+    table.insert(active_workspaces, {
+      name = ws.name,
+      path = full_path,
+    })
+  end
+end
+
+
 return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
@@ -17,17 +47,7 @@ return {
     -- see below for full list of optional dependencies 👇
   },
   opts = {
-    workspaces = {
-      {
-        name = "work",
-        path = "/mnt/c/Users/rr280985/Documents/second_brain/",
-      },
-
-      -- {
-      --   name = "work",
-      --   path = "/mnt/c/Users/rr280985/Documents/second_brain",
-      -- },
-    },
+    workspaces = active_workspaces,
     daily_notes = {
       date_format = "%Y/%m-%b/Daily Notes/%Y-%m-%d",
       template = "Daily Notes Template.md",
