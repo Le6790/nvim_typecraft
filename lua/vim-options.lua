@@ -64,3 +64,6 @@ vim.opt.linebreak = true
 vim.opt.backspace = "indent,eol,start"
 vim.api.nvim_create_user_command("W", "w", {}) -- Set :W to do the same thing as :w (Because I accidentally type it all the time)
 vim.api.nvim_create_user_command("Q", "q", {}) -- Set :Q to do the same thing as :q (Because I accidentally type it all the time)
+
+
+vim.g.copilot_proxy_strict_ssl = false         -- tells copilot to ignire strict SSL check
