@@ -140,3 +140,70 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_user_command("Oyest", function()
   vim.cmd("ObsidianYesterday")
 end, {})
+
+vim.api.nvim_create_user_command('SCPDev', function(opts)
+  local remote_path = opts.args
+  local server = "rr280985@rrlnx-pwsd03"
+
+  -- Ensure the path starts with a / for absolute paths on the server
+  if not remote_path:match("^/") then
+    remote_path = "/" .. remote_path
+  end
+
+  -- Construct the netrw scp string
+  -- Note: Netrw uses // to indicate the start of an absolute path
+  local target = string.format("scp://%s/%s", server, remote_path)
+
+  print("Connecting to " .. server .. "...")
+  vim.cmd("edit " .. target)
+end, {
+  nargs = 1,
+  desc = "Edit a remote file via SCP/Netrw"
+})
+
+
+vim.api.nvim_create_user_command('SyncDev', function(opts)
+    local remote_path = opts.args
+    local server = "rr280985@rrlnx-pwsd03"
+    
+    -- Ensure we have an absolute path for the mapping
+    if not remote_path:match("^/") then
+        print("Error: Please provide an absolute remote path (starting with /)")
+        return
+    end
+
+    -- The magic bit: Mirror the remote path locally
+    -- If remote is /home/user/proj/main.py, local becomes /home/user/proj/main.py
+    local local_file = remote_path
+    local local_dir = vim.fn.fnamemodify(local_file, ":h")
+
+    -- 1. Create the local directory structure
+    if vim.fn.isdirectory(local_dir) == 0 then
+        vim.fn.mkdir(local_dir, "p")
+    end
+
+    -- 2. Sync FROM remote to local
+    -- Using --relative on rsync can be tricky, so we'll keep it simple:
+    print("Pulling from " .. server .. "...")
+    local pull_cmd = string.format(
+        "rsync -avz --exclude='.git' --exclude='__pycache__' %s:%s %s",
+        server, remote_path, local_file
+    )
+    vim.fn.system(pull_cmd)
+
+    -- 3. Open the local file
+    vim.cmd("edit " .. local_file)
+
+    -- 4. Set up auto-sync back to server on save
+    vim.api.nvim_create_autocmd("BufWritePost", {
+        buffer = 0,
+        callback = function()
+            print("Pushing to " .. server .. "...")
+            local push_cmd = string.format(
+                "rsync -avz %s %s:%s",
+                local_file, server, remote_path
+            )
+            vim.fn.system(push_cmd)
+        end,
+    })
+end, { nargs = 1, desc = "Mirror and edit remote file via Rsync" })
