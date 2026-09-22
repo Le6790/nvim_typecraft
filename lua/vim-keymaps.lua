@@ -141,6 +141,9 @@ vim.api.nvim_create_user_command("Oyest", function()
   vim.cmd("ObsidianYesterday")
 end, {})
 
+-- Open obsidian tags picker
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<cr>", { desc = "Open Obsidian tags" })
+
 vim.api.nvim_create_user_command('SCPDev', function(opts)
   local remote_path = opts.args
   local server = "rr280985@rrlnx-pwsd03"
