@@ -1,17 +1,23 @@
 return {
   {
     -- nvim-cmp source for neovim's built-in language server client
+    -- kept eager (no lazy trigger): needed by lsp-config.lua's
+    -- cmp_nvim_lsp.default_capabilities() call at startup
     "hrsh7th/cmp-nvim-lsp",
     commit = "bd5a7d6db125d4654b50eeae9f5217f24bb22fd3", -- 2025/09/02
-    dependencies = {
-      -- nvim-cmp source for filesystem paths
-      "hrsh7th/cmp-path",
-      commit = "c642487086dbd9a93160e1679a1327be111cbc25", -- 2025/09/02
-    },
+  },
+  {
+    -- nvim-cmp source for filesystem paths
+    -- was previously (mis)nested as a dependency of cmp-nvim-lsp above,
+    -- which dragged it (and therefore cmp + luasnip) eager at startup
+    "hrsh7th/cmp-path",
+    commit = "c642487086dbd9a93160e1679a1327be111cbc25", -- 2025/09/02
+    event = "InsertEnter",
   },
   {
     "L3MON4D3/LuaSnip",
     version = "v2.4.0",
+    event = "InsertEnter",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -20,6 +26,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     version = "v0.0.2",
+    event = "InsertEnter",
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip") -- For `luasnip` users.

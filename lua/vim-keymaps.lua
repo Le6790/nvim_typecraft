@@ -76,12 +76,7 @@ keymap("n", "vv", "0v$", { noremap = true })
 -- File explorer
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>")
 
--- Fuzzy finder (fzf-lua)
-keymap("n", "<leader>pf", "<cmd>lua require('fzf-lua').files()<CR>")
-keymap("n", "<leader>pr", "<cmd>lua require('fzf-lua').oldfiles()<CR>")
-keymap("n", "<leader>pt", "<cmd>lua require('fzf-lua').live_grep()<CR>")
-keymap("n", "<leader>pb", "<cmd>lua require('fzf-lua').buffers()<CR>")
-keymap("n", "<leader>pm", "<cmd>lua require('fzf-lua').marks()<CR>")
+-- Fuzzy finder (fzf-lua) — keymaps defined in lua/plugins/fzf.lua for lazy-loading
 
 -- Formatting
 keymap("n", "<leader>fmt", vim.lsp.buf.format, {})
