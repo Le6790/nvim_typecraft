@@ -2,8 +2,10 @@ return {
   "folke/snacks.nvim",
   version = "2.22.0",
   priority = 1000,
-  vim.api.nvim_create_user_command("Dashboard", "lua Snacks.dashboard()", {}),
   lazy = false,
+  init = function()
+    vim.api.nvim_create_user_command("Dashboard", "lua Snacks.dashboard()", {})
+  end,
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings

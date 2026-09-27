@@ -12,7 +12,7 @@
 
 [Built from Typecraft 0 to IDE](https://www.youtube.com/watch?v=zHTeCSVAFNY&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&ab_channel=typecraft)
 
-Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
+Using [Neovim 0.11.5](https://github.com/neovim/neovim/releases/tag/v0.11.5)
 
 [lazy.nvim package manager](https://github.com/folke/lazy.nvim)
 
@@ -37,8 +37,10 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - [luasnip](https://github.com/L3MON4D3/LuaSnip)
     - Snippet completion source
     - vs-code like snippets
-- [fzf.nvim](https://github.com/junegunn/fzf.vim)
-  - Fuzzy finder wrapper for nvim
+  - [cmp-path](https://github.com/hrsh7th/cmp-path)
+    - Filesystem path completion source
+- [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+  - Lua-native fuzzy finder (replaced fzf.vim)
 - lsp-config
   - [mason.nvim](https://github.com/williamboman/mason.nvim)
     - Package manager
@@ -71,6 +73,7 @@ Using [Neovim0.9.4](https://github.com/neovim/neovim/releases/tag/v0.9.4)
   - Animated cursor movement
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
   - Utility plugin for dashboard, git, terminal, notifications, and more
+  - Dashboard replaced alpha-nvim (now disabled)
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) - ***Disabled
   - Highly extendable fuzzy finder
   - Not really used at the moment

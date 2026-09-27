@@ -27,7 +27,7 @@ vim.opt.ignorecase = true                       -- ignore case in search pattern
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 0                         -- always show tabs
+vim.opt.showtabline = 0                         -- never show the tabline
 vim.opt.smartcase = true                        -- smart case
 vim.opt.smartindent = true                      -- make indenting smarter again
 vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
@@ -39,6 +39,7 @@ vim.opt.timeoutlen = 300                        -- time to wait for a mapped seq
 vim.opt.undofile = true                         -- enable persistent undo
 vim.opt.updatetime = 300                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.opt.autoread = true                         -- auto-reload buffers when the underlying file changes on disk (e.g. Claude editing it)
 vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2                             -- insert x spaces for a tab
@@ -49,7 +50,7 @@ vim.opt.laststatus = 3                          -- only the last window will alw
 vim.opt.showcmd = false                         -- hide (partial) command in the last line of the screen (for performance)
 vim.opt.ruler = false                           -- hide the line and column number of the cursor position
 vim.opt.numberwidth = 4                         -- minimal number of columns to use for the line number {default 4}
-vim.opt.signcolumn = "auto:2"                      -- always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn = "auto:2"                      -- show up to 2 sign columns only when signs are present
 vim.opt.wrap = false                            -- display lines as one long line
 vim.opt.scrolloff = 10                           -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 10                       -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
@@ -67,3 +68,24 @@ vim.api.nvim_create_user_command("Q", "q", {}) -- Set :Q to do the same thing as
 
 
 vim.g.copilot_proxy_strict_ssl = false         -- tells copilot to ignire strict SSL check
+
+-- `autoread` only reloads a buffer when vim runs :checktime, it doesn't poll on its own.
+-- Trigger that check on the events most likely to happen right after an external
+-- process (e.g. Claude Code) edits a file out from under an open buffer.
+local autoread_group = vim.api.nvim_create_augroup("AutoreadCheckTime", { clear = true })
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI", "TermLeave" }, {
+  group = autoread_group,
+  callback = function()
+    if vim.fn.mode() ~= "c" then
+      vim.cmd("checktime")
+    end
+  end,
+})
+
+-- Let me know when a buffer got silently reloaded from disk
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  group = autoread_group,
+  callback = function()
+    vim.notify("Buffer reloaded (changed on disk)", vim.log.levels.INFO)
+  end,
+})
