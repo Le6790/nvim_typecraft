@@ -35,10 +35,10 @@ return {
         -- When using a function, the `items` argument are the default keymaps.
         -- Get more icons from https://www.nerdfonts.com/cheat-sheet
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":FzfLua files" },
+          { icon = " ", key = "f", desc = "Find File", action = function() require("fzf-lua").files() end },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "t", desc = "Find Text", action = ":FzfLua live_grep" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":FzfLua oldfiles" },
+          { icon = " ", key = "t", desc = "Find Text", action = function() require("fzf-lua").live_grep() end },
+          { icon = " ", key = "r", desc = "Recent Files", action = function() require("fzf-lua").oldfiles() end },
           { icon = "󰠮 ", key = "o", desc = "Obsidian Today", action = ":ObsidianToday" },
           { icon = " ", key = "c", desc = "Config", action = ":e $MYVIMRC" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
